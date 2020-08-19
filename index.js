@@ -5,7 +5,7 @@ const port = 3001
 var http = require('http');
 var fs = require('fs');
 
-const PORT=8080; 
+const PORT=  process.env.PORT || 8080 ; 
 
 // app.get('/', (req, res) => res.send('Hello World!'))
 
