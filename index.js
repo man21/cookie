@@ -1,26 +1,19 @@
-const express = require('express')
-const app = express()
-const port = 3001
-
-var http = require('http');
-var fs = require('fs');
-
-const PORT=  process.env.PORT || 8080 ; 
-
-// app.get('/', (req, res) => res.send('Hello World!'))
-
-// app.use('/', express.static('/'));
 
 
-fs.readFile('./example.html', function (err, html) {
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = process.env.PORT || 3002;
 
-    if (err) throw err;    
+app.use('/', express.static(path.join(__dirname, 'HTML')))
 
-    http.createServer(function(request, response) {  
-        response.writeHeader(200);  
-        response.write(html);  
-        response.end();  
-    }).listen(PORT);
+//start server
+app.listen(port, function () {
+    console.log("server connection established");
 });
 
-// app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+
+
+
+ 

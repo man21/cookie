@@ -3,22 +3,23 @@
 <head>
 <meta charset="utf-8">
 <title>GDPR cookies</title>
-<link rel="stylesheet" href="drpCookie.css">
-<!-- <script type="application/javascript" charset="utf-8" src="gdprCookie.min.js"></script> -->
-<script type="application/javascript" charset="utf-8" src="dist/gdprCookie_nonES6.min.js"></script>
-<script>
+<link rel="stylesheet" href="gdrpCookie.css">
 
+<script type="application/javascript"  src="gdprCookie.js"></script>
+
+<!-- <script type="application/javascript" charset="utf-8" src="dist/gdprCookie_nonES6.min.js"></script> -->
+<script>
 
 var cookies=new gdprCookie();
 cookies.title="Cookies";
 cookies.cookie_path='/'; //the cookie path, default is '/'
-cookies.cookie_secure=true;//true or false. If ommited, the default functionality is to check the location protocol. If set, the location.protocol is overriden.
+//cookies.cookie_secure=true;//true or false. If ommited, the default functionality is to check the location protocol. If set, the location.protocol is overriden.
 cookies.types=[{'type':'tracking','text':'Analysis Cookies','default':false,'detailsText':'Google Analytics'},
 {'type':'advertising','text':'Advertising Cookies','default':false,'detailsText':'Google remarketing, Facebook pixels etc'}];//add as many as you need in the array. Type parameter must be unique!!!
 cookies.cookie_type_mandatory_text='Cookies λειτουργικότητας';//this is the default mandatory cookie(actually this cookie) text next to the disabled checkbox
 cookies.cookie_type_mandatory_detailsText='These cookies are essential for the site operation (e.g PHPSESSID)';
 cookies.expires='30';//the cookie expiry period in days default is 30
-cookies.position='Bottom';//positioning of the container. Default is bottom. Possible values top,bottom,full. Full covers the hole page and the user must make a selection in order to continue using your site
+cookies.position='bottom';//positioning of the container. Default is bottom. Possible values top,bottom,full. Full covers the hole page and the user must make a selection in order to continue using your site
 cookies.intro_text='We use <a href="#link-to-your-cookie-policy" target="_blank"><strong>cookies</strong></a> to provide you the best possible experience on our site. You can adjust the cookie settings anytime.';
 cookies.btn_settings_text='Settings';
 cookies.btn_hide_settings_text='Hide settings';
@@ -52,14 +53,15 @@ cookies.check();
   gtag('config', 'XX-XXXXXXXX-1');
 </script>
 
-<script type="text/javascript">(function (d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//forms.aweber.com/form/38/770050538.js";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, "script", "aweber-wjs-qr94oshsu"));
-</script>
+<script>(function (w, d, s, l, i) {
+  w[l] = w[l] || []; w[l].push({
+    'gtm.start':
+      new Date().getTime(), event: 'gtm.js'
+  }); var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+      'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-5J2JQ55');</script>
+
 
 
 
@@ -67,6 +69,8 @@ cookies.check();
 </head>
 
 <body style="background-color:red;">
+
+  <a href="//google.com" class="gdpr_settings_button" target="_blank">here</a>
 
 </body>
 </html>
